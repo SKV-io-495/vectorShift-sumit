@@ -39,7 +39,6 @@ export const BaseNode = ({ id, data, label, handles = [], children, style = {} }
     <div style={{ 
       width: 200, 
       height: 'auto', 
-      minHeight: 80,
       border: '1px solid black', 
       background: 'white',
       borderRadius: '8px',
@@ -94,6 +93,7 @@ export const BaseNode = ({ id, data, label, handles = [], children, style = {} }
           position={handle.position}
           id={handle.id}
           style={handle.style}
+          isConnectable={handle.isConnectable}
         />
       ))}
 
