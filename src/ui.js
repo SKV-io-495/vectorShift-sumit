@@ -15,6 +15,7 @@ import { IntegrationNode } from './nodes/integrationNode';
 import { LogicNode } from './nodes/logicNode';
 import { FileNode } from './nodes/fileNode';
 import { TransformNode } from './nodes/transformNode';
+import { ButtonEdge } from './nodes/ButtonEdge';
 
 import '@xyflow/react/dist/style.css';
 
@@ -30,6 +31,10 @@ const nodeTypes = {
   logic: LogicNode,
   file: FileNode,
   transform: TransformNode,
+};
+
+const edgeTypes = {
+  default: ButtonEdge,
 };
 
 const selector = (state) => ({
@@ -89,7 +94,7 @@ export const PipelineUI = () => {
             addNode(newNode);
           }
         },
-        [reactFlowInstance]
+        [reactFlowInstance, getNodeID, addNode]
     );
 
     const onDragOver = useCallback((event) => {
@@ -110,9 +115,9 @@ export const PipelineUI = () => {
                 onDragOver={onDragOver}
                 onInit={setReactFlowInstance}
                 nodeTypes={nodeTypes}
+                edgeTypes={edgeTypes}
                 proOptions={proOptions}
                 snapGrid={[gridSize, gridSize]}
-                connectionLineType='smoothstep'
             >
                 <Background color="#aaa" gap={gridSize} />
                 <Controls />
