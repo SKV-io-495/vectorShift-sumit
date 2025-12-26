@@ -10,6 +10,11 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { NoteNode } from './nodes/noteNode';
+import { IntegrationNode } from './nodes/integrationNode';
+import { LogicNode } from './nodes/logicNode';
+import { FileNode } from './nodes/fileNode';
+import { TransformNode } from './nodes/transformNode';
 
 import '@xyflow/react/dist/style.css';
 
@@ -20,6 +25,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  note: NoteNode,
+  integration: IntegrationNode,
+  logic: LogicNode,
+  file: FileNode,
+  transform: TransformNode,
 };
 
 const selector = (state) => ({
